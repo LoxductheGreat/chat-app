@@ -1,0 +1,13 @@
+.loginForm-container {
+  padding: 25px;
+  margin: 150px;
+  height: 390px;
+  width: 400px;
+}
+
+.registerForm-container {
+  padding: 25px;
+  margin: 150px;
+  height: 340px;
+  width: 400px;
+}
