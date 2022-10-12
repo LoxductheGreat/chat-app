@@ -11,3 +11,36 @@
   height: 340px;
   width: 400px;
 }
+
+.chs-container {
+  display: flex;
+  background-color: #959A96;
+}
+/* Header Section ---------------------------------------------- */
+.header {
+  background-color: aqua;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.icon {
+
+}
+
+.noti-bttn {
+  border: none;
+  background: none;
+}
+
+/* Header Section End ---------------------------------------------- */
+
+
+.cl-container {
+  flex: 10%;
+  background-color: red;
+}
+
+.cb-container {
+  flex: 50%;
+  background-color: blue;
+}

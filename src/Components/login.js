@@ -1,23 +1,45 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { userLogin } from './api'
 
 function Login () {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const nav = useNavigate()
+
+  function onLogin (e) {
+    e.preventDefault()
+    setLoading(true)
+
+    userLogin(username, password)
+      .then(data => {
+        window.localStorage.setItem('token', data)
+        console.log(data)
+      })
+    setLoading(false)
+    nav('/')
+  }
+
+  
+
   return (
     <div className='container d-flex justify-content-center'>
-      <form className='loginForm-container border rounded'>
+      <form onSubmit={onLogin} className='loginForm-container border rounded'>
         <h1 className='d-flex justify-content-center'>Login</h1>
         <div className='p-1 m-3'>
-          <label htmlFor='usernameInput' className='form-label'>Username</label>
-          <input type='text' className='form-control' id='usernameInput' />
+          <label htmlFor='username' className='form-label'>Username</label>
+          <input type='text' className='form-control' name='username' value={username} onChange={e => setUsername(e.target.value)} />
         </div>
 
         <div className='p-1 m-3'>
-          <label htmlFor='passwordInput' className='form-label'>Password</label>
-          <input type='password' className='form-control' id='passwordInput' />
+          <label htmlFor='password' className='form-label'>Password</label>
+          <input type='password' className='form-control' name='password' value={password} onChange={e => setPassword(e.target.value)} />
         </div>
 
         <div className='d-flex justify-content-center'>
-          <button type='button' className='btn btn-primary w-50'>
+          <button type='submit' className='btn btn-primary w-50'>
                 Login
           </button>
         </div>
