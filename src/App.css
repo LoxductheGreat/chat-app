@@ -12,35 +12,94 @@
   width: 400px;
 }
 
-.chs-container {
-  display: flex;
-  background-color: #959A96;
-}
-/* Header Section ---------------------------------------------- */
-.header {
-  background-color: aqua;
-  margin-bottom: 20px;
-  display: flex;
+
+body {
+  background-color: #72A2F1;
 }
 
-.icon {
+.chatbox {
+  margin-top: 8px;
+  margin-right: 5px;
+  height: 610px;
+}
+
+.n {
+  height: 100%;
+  max-width: 1452px;
+}
+
+.chatlist {
+  height: 610px;
 
 }
 
-.noti-bttn {
+.searchbar {
+  margin-left: 20px;
+}
+
+.title {
+  vertical-align: middle;
+}
+
+/* This is for chatlist buttons */
+.button {
+  margin-top: 10px;
+}
+
+.newgroupchat {
+  margin-right: 10px;
+}
+
+h4 {
+  font-size: 30px;
+}
+
+.notti-button {
   border: none;
   background: none;
-}
+  margin-right: 10px;
+} 
 
+/* nav {
+  background-color: #e3f2fd;
+} */
+ 
 /* Header Section End ---------------------------------------------- */
 
+/* ChatList Section ------------------------------------------------ */
+/* .cl-header button {
+  background-color: #C0C8CF;
+  border: none;
+  border-radius: 12px;
+} */
 
-.cl-container {
-  flex: 10%;
-  background-color: red;
-}
+
+/* ChatList Section End------------------------------------------------ */
+
+
+/* ChatBox Section ------------------------------------------------ */
 
 .cb-container {
-  flex: 50%;
+  /* background-color: #72A2F1;
+  float: right;
+  width: 50%;
+  margin-right: 18px; */
+  /* flex: 50%;
   background-color: blue;
+  height: 575px; */
+  /* width: 100px; */
 }
+/* ChatBox Section End------------------------------------------------ */
+
+  /* .nice {
+    height: 50%;
+  }
+
+
+  nav {
+    background-color: white;
+  }
+
+  nav input {
+    margin-left: 10px;
+  } */

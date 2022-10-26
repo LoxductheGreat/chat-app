@@ -4,6 +4,12 @@ import axios from 'axios'
 //   baseURL: 'https://chatting-app-api-chatify.herokuapp.com/'
 // })
 
+const config = {
+  headers: {
+    Authorization: 'Bearer ' + localStorage.getItem('token ')
+  }
+}
+
 // Auth Section -----------------------------
 export function userLogin (username, password) {
   return axios.post('https://chatting-app-api-chatify.herokuapp.com/api/user/login/', {
@@ -22,12 +28,8 @@ export function userRegister (username, email, password) {
 
 // Auth Section End -----------------------------
 
-
 export function userChats (token) {
-  return axios.get('https://chatting-app-api-chatify.herokuapp.com/api/chat', {
-    headers: {
-      Authorization: 'token ' + token
-    }
-  })
-    .then(res => res.data)
+  return axios.get('https://chatting-app-api-chatify.herokuapp.com/api/chat', config).then(
+    res => res.data
+  )
 }

@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { userLogin } from './api'
+import { LoginContext, LoginProvider, useLogin } from '../Context/LoginContext'
 
 function Login () {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  // const { token, setToken } = useLogin()
+  const [token, setToken] = useState('')
 
   const nav = useNavigate()
 
@@ -14,15 +17,13 @@ function Login () {
     setLoading(true)
 
     userLogin(username, password)
-      .then(data => {
-        window.localStorage.setItem('token', data)
-        console.log(data)
+      .then(token => {
+        localStorage.setItem('token ', token)
       })
     setLoading(false)
     nav('/')
   }
 
-  
 
   return (
     <div className='container d-flex justify-content-center'>
