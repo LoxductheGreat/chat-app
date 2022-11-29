@@ -4,20 +4,18 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
-import ChatProvider from './Components/ChatContext'
-import { LoginProvider } from './Context/LoginContext'
+import ChatProvider from './Context/ChatContext'
+import 'bootstrap/dist/js/bootstrap.bundle.js'
+import 'bootstrap/dist/css/bootstrap.css'
+import '@popperjs/core'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
-    <LoginProvider>
-      <BrowserRouter>
-        <ChatProvider>
-          <App />
-        </ChatProvider>
-      </BrowserRouter>
-    </LoginProvider>
-  </React.StrictMode>
+  <BrowserRouter>
+    <ChatProvider>
+      <App />
+    </ChatProvider>
+  </BrowserRouter>
 )
 
 // If you want to start measuring performance in your app, pass a function

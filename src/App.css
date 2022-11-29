@@ -1,57 +1,19 @@
-.loginForm-container {
-  padding: 25px;
-  margin: 150px;
-  height: 390px;
-  width: 400px;
-}
-
-.registerForm-container {
-  padding: 25px;
-  margin: 150px;
-  height: 340px;
-  width: 400px;
-}
-
-
-body {
+.App {
+  min-height: 100vh;
+  display: flex;
   background-color: #72A2F1;
 }
 
-.chatbox {
-  margin-top: 8px;
-  margin-right: 5px;
-  height: 610px;
+.mt-custom {
+  padding-top: 20vh;
 }
 
-.n {
-  height: 100%;
-  max-width: 1452px;
+.rp-custom {
+  padding-top: 20px;
 }
 
-.chatlist {
-  height: 610px;
-
-}
-
-.searchbar {
-  margin-left: 20px;
-}
-
-.title {
-  vertical-align: middle;
-}
-
-/* This is for chatlist buttons */
-.button {
-  margin-top: 10px;
-}
-
-.newgroupchat {
-  margin-right: 10px;
-}
-
-h4 {
-  font-size: 30px;
+.x {
+  padding-right: 75px;
 }
 
 .notti-button {
@@ -60,46 +22,47 @@ h4 {
   margin-right: 10px;
 } 
 
-/* nav {
-  background-color: #e3f2fd;
-} */
- 
-/* Header Section End ---------------------------------------------- */
-
-/* ChatList Section ------------------------------------------------ */
-/* .cl-header button {
-  background-color: #C0C8CF;
-  border: none;
-  border-radius: 12px;
-} */
-
-
-/* ChatList Section End------------------------------------------------ */
-
-
-/* ChatBox Section ------------------------------------------------ */
-
-.cb-container {
-  /* background-color: #72A2F1;
-  float: right;
-  width: 50%;
-  margin-right: 18px; */
-  /* flex: 50%;
-  background-color: blue;
-  height: 575px; */
-  /* width: 100px; */
+.searchbar {
+  padding-left: 20px;
 }
-/* ChatBox Section End------------------------------------------------ */
 
-  /* .nice {
-    height: 50%;
-  }
+.header-img {
+  height: 30px;
+  width: 30px;
+}
 
+.profile-img {
+  height: 50%;
+  width: 50%;
+}
 
-  nav {
-    background-color: white;
-  }
+.chatitemlistimg {
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+}
 
-  nav input {
-    margin-left: 10px;
-  } */
+.required-field {
+  color: red;
+}
+
+.nice {
+  width: 75%;
+  margin-bottom: 10px;
+}
+
+.newgrouptitle {
+  font-size: 25px;
+}
+
+.homepagebody {
+  height: 91%;
+}
+
+/* .chatlistlog>.active {
+  background-color: aqua;
+}
+
+.chatlistlog {
+  background-color: none;
+} */

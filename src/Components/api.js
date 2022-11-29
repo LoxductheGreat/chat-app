@@ -4,19 +4,19 @@ import axios from 'axios'
 //   baseURL: 'https://chatting-app-api-chatify.herokuapp.com/'
 // })
 
-const config = {
-  headers: {
-    Authorization: 'Bearer ' + localStorage.getItem('token ')
-  }
-}
+// const config = {
+//   headers: {
+//     Authorization: 'Bearer ' + localStorage.getItem('userInfo', userInfo)
+//   }
+// }
 
 // Auth Section -----------------------------
-export function userLogin (username, password) {
-  return axios.post('https://chatting-app-api-chatify.herokuapp.com/api/user/login/', {
-    username: username,
-    password: password
-  }).then(res => res.data.token)
-}
+// export function userLogin (username, password) {
+//   return axios.post('https://chatting-app-api-chatify.herokuapp.com/api/user/login/', {
+//     username: username,
+//     password: password
+//   }).then(res => res.data.token)
+// }
 
 export function userRegister (username, email, password) {
   return axios.post('https://chatting-app-api-chatify.herokuapp.com/api/user', {
@@ -28,8 +28,8 @@ export function userRegister (username, email, password) {
 
 // Auth Section End -----------------------------
 
-export function userChats (token) {
-  return axios.get('https://chatting-app-api-chatify.herokuapp.com/api/chat', config).then(
-    res => res.data
-  )
-}
+// export function userChats (token) {
+//   return axios.get('https://chatting-app-api-chatify.herokuapp.com/api/chat', config).then(
+//     res => res.data
+//   )
+// }
