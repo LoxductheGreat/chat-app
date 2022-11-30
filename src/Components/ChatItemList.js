@@ -2,7 +2,7 @@ import React from 'react'
 
 function ChatItemList ({ user, handleFunction }) {
   return (
-    <button type='button' className='btn btn-light d-flex nice' data-bs-dismiss='offcanvas' onClick={handleFunction}>
+    <button type='button' className='btn btn-light d-flex nice' onClick={handleFunction}>
       <img className='rounded-circle chatitemlistimg' src={user.pic} alt='' />
       <p className='m-1'><b>{user.username}</b></p>
       {/* <p>

@@ -85,9 +85,8 @@ function Header () {
           </div>
         </div>
         <h3 className='navbar-brand m-1 my-sm-0 title'>Chatify</h3>
-        {/* <button type='button' className='btn btn-light notti-button' data-bs-container='body' data-bs-toggle='popover' data-bs-placement='bottom' data-bs-content='Bottom popover'><FontAwesomeIcon size='lg' icon={faBell} />
-        </button> */}
         <div className='btn-group-sm mx-4' role='group' aria-label='Button group with nested dropdown'>
+          {/* Might wanna use a badge for notiication bell */}
           <button type='button' className='btn btn-light notti-button' data-bs-container='body' data-bs-toggle='popover' data-bs-placement='bottom' data-bs-content='Bottom popover'><FontAwesomeIcon size='xl' icon={faBell} />
           </button>
           <button type='button' className='btn btn-light '><img className='rounded header-img' src={user.pic} alt='' /></button>

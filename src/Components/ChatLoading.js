@@ -2,8 +2,14 @@ import React from 'react'
 
 function ChatLoading () {
   return (
-    <div className='spinner-border text-primary d-flex align-items-center' role='status'>
-      <span className='sr-only'>Loading...</span>
+    <div className='placeholder-glow placeholder-lg' aria-hidden='true'>
+      <span class='placeholder col-12' />
+      <span class='placeholder col-12' />
+      <span class='placeholder col-12' />
+      <span class='placeholder col-12' />
+      <span class='placeholder col-12' />
+      <span class='placeholder col-12' />
+      <span class='placeholder col-12' />
     </div>)
 }
 
