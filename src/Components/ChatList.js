@@ -7,6 +7,7 @@ import ChatLoading from './ChatLoading'
 import { getSender } from './ChatLogic'
 import ChatItemList from './ChatItemList'
 import UserBadgeItem from './UserBadgeItem'
+import { useNavigate } from 'react-router-dom'
 
 function ChatList ({ fetchAgain }) {
   const [loggedUser, setLoggedUser] = useState()
@@ -15,7 +16,10 @@ function ChatList ({ fetchAgain }) {
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState([])
   const [loading, setLoading] = useState(false)
+  const [nice, setNice] = useState(false)
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState()
+
+  const nav = useNavigate()
 
   const onSearch = async (query) => {
     setSearch(query)

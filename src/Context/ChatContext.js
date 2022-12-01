@@ -15,7 +15,9 @@ const ChatProvider = ({ children }) => {
     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
     setUser(userInfo)
 
-  }, [])
+    // if (!userInfo) nav('/login')
+
+  }, [nav])
 
   return (
     <ChatContext.Provider value={{ user, setUser, chats, setChats, selectedChat, setSelectedChat, notification, setNotification }}>

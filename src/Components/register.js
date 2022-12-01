@@ -7,7 +7,8 @@ function Register () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  // const [errorMessage, setErrorMessage] = useState()
+  const [errorMessage, setErrorMessage] = useState()
+  const [successMessage, setSuccessMessage] = useState()
   const [confirmPassword, setConfirmPassword] = useState('')
   const [pic, setPic] = useState()
   const [picLoading, setPicLoading] = useState(false)
@@ -42,17 +43,17 @@ function Register () {
     setPicLoading(true)
     setLoading(true)
 
-    // if (!username || !password || !email) {
-    //   setErrorMessage('Please fill in the Fields')
-    //   setLoading(false)
-    //   return
-    // }
+    if (!username || !password || !email || !confirmPassword) {
+      setErrorMessage('Please fill in the Fields')
+      setLoading(false)
+      return
+    }
 
-    // if (password === confirmPassword) {
-    //   setErrorMessage('Passwords dont match')
-    //   setLoading(false)
-    //   return
-    // }
+    if (password !== confirmPassword) {
+      setErrorMessage('Passwords dont match')
+      setLoading(false)
+      return
+    }
 
     try {
       const config = {
@@ -65,14 +66,24 @@ function Register () {
         { username, email, password, pic },
         config
       )
-      // localStorage.setItem('userInfo', JSON.stringify(data))
+
+      setSuccessMessage('Login SuccessFul')
+
+      localStorage.setItem('userInfo', JSON.stringify(data))
+      setLoading(false)
+      setTimeout(() => nav('/login'), 2000)
     } catch (error) {
-      console.log('error')
+      setErrorMessage(error.response.data.message)
+      setLoading(false)
     }
-    setPicLoading(false)
-    setLoading(false)
-    nav('/login')
+    // setPicLoading(false)
+    // setLoading(false)
+    // nav('/login')
   }
+
+  useEffect(() => {
+    setTimeout(() => setErrorMessage(null), 5000)
+  })
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
@@ -85,8 +96,10 @@ function Register () {
   return (
     <div className='vh-100 vw-100 rp-custom'>
       <div className='container d-flex justify-content-center'>
-        <form onSubmit={onRegister} className='border rounded bg-white justify-content-center p-4'>
+        <form className='border rounded bg-white justify-content-center p-2'>
           <h1 className='d-flex justify-content-center'>Register</h1>
+          {successMessage ? <div className=' text-center alert alert-success alert-dismissible fade show' role='alert'>{successMessage}</div> : null}
+          {errorMessage ? <div className='text-center alert alert-danger alert-dismissible fade show' role='alert'>{errorMessage}</div> : null}
           <div className='p-1 m-3'>
             <label htmlFor='usernameInput' className='form-label'>Username<b className='required-field'>*</b></label>
             <input type='text' className='form-control' id='usernameInput' value={username} onChange={e => setUsername(e.target.value)} />
@@ -113,9 +126,14 @@ function Register () {
           </div>
 
           <div className='d-flex justify-content-center'>
-            <button type='submit button' className='btn btn-primary w-50'>
+            {loading ? <button className='btn btn-primary' type='button' disabled>
+              <span className='spinner-border spinner-border-sm' role='status' aria-hidden='true' />
+              <span> Loading...</span>
+                       </button> : <button type='button' onClick={onRegister} className='btn btn-primary w-50'>Register</button>}
+
+            {/* <button type='submit button' className='btn btn-primary w-50'>
               Register
-            </button>
+            </button> */}
           </div>
         </form>
       </div>

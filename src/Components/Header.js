@@ -21,6 +21,7 @@ function Header () {
   const onLogout = () => {
     localStorage.removeItem('userInfo')
     nav('/login')
+    window.location.reload()
   }
 
   const onSearch = async () => {
