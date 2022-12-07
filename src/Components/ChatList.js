@@ -17,6 +17,8 @@ function ChatList ({ fetchAgain }) {
   const [searchResult, setSearchResult] = useState([])
   const [loading, setLoading] = useState(false)
   const [nice, setNice] = useState(false)
+  const [errorMessage, setErrorMessage] = useState()
+
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState()
 
   const nav = useNavigate()
@@ -36,7 +38,7 @@ function ChatList ({ fetchAgain }) {
         }
       }
 
-      const { data } = await axios.get(`https://chatting-app-api-chatify.herokuapp.com/api/user?search=${search}`, config)
+      const { data } = await axios.get(`https://chat-app-api-production-2f20.up.railway.app/api/user?search=${search}`, config)
       console.log(data)
       setLoading(false)
       setSearchResult(data)
@@ -57,7 +59,7 @@ function ChatList ({ fetchAgain }) {
         }
       }
 
-      const { data } = await axios.post('https://chatting-app-api-chatify.herokuapp.com/api/chat/group', {
+      const { data } = await axios.post('https://chat-app-api-production-2f20.up.railway.app/api/chat/group', {
         name: groupChatName,
         users: JSON.stringify(selectedUsers.map((u) => u._id))
       }, config)
@@ -89,10 +91,10 @@ function ChatList ({ fetchAgain }) {
         }
       }
 
-      const { data } = await axios.get('https://chatting-app-api-chatify.herokuapp.com/api/chat', config)
+      const { data } = await axios.get('https://chat-app-api-production-2f20.up.railway.app/api/chat', config)
       setChats(data)
     } catch (error) {
-
+      setErrorMessage('Error has Occured!')
     }
   }
 
@@ -101,6 +103,10 @@ function ChatList ({ fetchAgain }) {
     fetchChats()
   }, [fetchAgain])
 
+  useEffect(() => {
+    setTimeout(() => setErrorMessage(null), 5000)
+  })
+
   return (
     <div className='card col m-2 col-4 mychatcard'>
       <div className='card-header d-flex justify-content-between'>
@@ -108,6 +114,7 @@ function ChatList ({ fetchAgain }) {
         <button type='button' className='btn btn-primary float-right' data-bs-toggle='modal' data-bs-target='#newgroupBackdrop'>New Group Chat<FontAwesomeIcon icon={faPlus} /></button>
       </div>
       <div className='card-body'>
+        {errorMessage ? <div className='alert alert-danger alert-dismissible fade show' role='alert'>{errorMessage}</div> : null}
         {chats ? (
           <div className='h-auto'>
             {chats.map((chat) => (

@@ -31,7 +31,7 @@ function Login () {
       }
 
       const { data } = await axios.post(
-        'https://chatting-app-api-chatify.herokuapp.com/api/user/login',
+        'https://chat-app-api-production-2f20.up.railway.app/api/user/login',
         { username, password },
         config
       )
@@ -69,6 +69,14 @@ function Login () {
           <form className='border rounded bg-white justify-content-center p-4'>
             <h1 className='d-flex justify-content-center'>Login</h1>
             {successMessage ? <div className='alert alert-success alert-dismissible fade show' role='alert'>{successMessage}</div> : null}
+            {/* {successMessage ? <div className='toast align-items-center' role='alert' aria-live='assertive' aria-atomic='true'>
+              <div className='d-flex'>
+                <div className='toast-body'>
+                  {successMessage}
+                </div>
+                <button type='button' className='btn-close me-2 m-auto' data-bs-dismiss='toast' aria-label='Close' />
+              </div>
+            </div> : null} */}
             {errorMessage ? <div className='alert alert-danger alert-dismissible fade show' role='alert'>{errorMessage}</div> : null}
             <div className='p-1 m-3'>
               <label htmlFor='username' className='form-label'>Username</label>

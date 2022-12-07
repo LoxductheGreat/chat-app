@@ -35,7 +35,7 @@ function UpdatedGroupChatModel ({ fetchAgain, setFetchAgain }) {
         }
       }
 
-      const { data } = await axios.put('https://chatting-app-api-chatify.herokuapp.com/api/chat/groupadd', {
+      const { data } = await axios.put('https://chat-app-api-production-2f20.up.railway.app/api/chat/groupadd', {
         chatId: selectedChat._id,
         userId: newUser._id
       }, config)
@@ -56,7 +56,7 @@ function UpdatedGroupChatModel ({ fetchAgain, setFetchAgain }) {
           Authorization: `Bearer ${user.token}`
         }
       }
-      const { data } = await axios.put('https://chatting-app-api-chatify.herokuapp.com/api/chat/groupremove', {
+      const { data } = await axios.put('https://chat-app-api-production-2f20.up.railway.app/api/chat/groupremove', {
         chatId: selectedChat._id,
         userId: user1._id
       }, config)
@@ -81,7 +81,7 @@ function UpdatedGroupChatModel ({ fetchAgain, setFetchAgain }) {
         }
       }
 
-      const { data } = await axios.put('https://chatting-app-api-chatify.herokuapp.com/api/chat/rename', {
+      const { data } = await axios.put('https://chat-app-api-production-2f20.up.railway.app/api/chat/rename', {
         chatId: selectedChat._id,
         chatName: groupChatName
       }, config)
@@ -109,7 +109,7 @@ function UpdatedGroupChatModel ({ fetchAgain, setFetchAgain }) {
         }
       }
 
-      const { data } = await axios.get(`https://chatting-app-api-chatify.herokuapp.com/api/user?search=${search}`, config)
+      const { data } = await axios.get(`https://chat-app-api-production-2f20.up.railway.app/api/user?search=${search}`, config)
       console.log(data)
       setLoading(false)
       setSearchResult(data)

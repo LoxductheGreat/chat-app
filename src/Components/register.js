@@ -62,12 +62,12 @@ function Register () {
         }
       }
       const { data } = await axios.post(
-        'https://chatting-app-api-chatify.herokuapp.com/api/user',
+        'https://chat-app-api-production-2f20.up.railway.app/api/user',
         { username, email, password, pic },
         config
       )
 
-      setSuccessMessage('Login SuccessFul')
+      setSuccessMessage('Registration SuccessFul')
 
       localStorage.setItem('userInfo', JSON.stringify(data))
       setLoading(false)

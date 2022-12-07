@@ -34,7 +34,7 @@ function Header () {
         }
       }
 
-      const { data } = await axios.get(`https://chatting-app-api-chatify.herokuapp.com/api/user?search=${search}`, config)
+      const { data } = await axios.get(`https://chat-app-api-production-2f20.up.railway.app/api/user?search=${search}`, config)
       setLoading(false)
       setSearchResult(data)
       console.log(data)
@@ -52,7 +52,7 @@ function Header () {
           Authorization: `Bearer ${user.token}`
         }
       }
-      const { data } = await axios.post('https://chatting-app-api-chatify.herokuapp.com/api/chat', { userId }, config)
+      const { data } = await axios.post('https://chat-app-api-production-2f20.up.railway.app/api/chat', { userId }, config)
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats])
       setSelectedChat(data)

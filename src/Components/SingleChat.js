@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ChatState } from '../Context/ChatContext'
 import { getSender, getSenderFull } from './ChatLogic'
 import ProfileModel from './ProfileModel'
 import UpdatedGroupChatModel from './UpdatedGroupChatModel'
+import LoadSingleChat from './LoadSingleChat'
 
 export default function SingleChat ({ fetchAgain, setFetchAgain }) {
+  const [messages, setMessages] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [newMessage, setNewMessage] = useState()
+
+
+
   const { user, selectedChat, setSelectedChat } = ChatState()
 
   return <>{
@@ -22,7 +29,11 @@ export default function SingleChat ({ fetchAgain, setFetchAgain }) {
         )}
         </div>
         <div className='messagebox d-flex justify-content-end m-2 overflow-hidden rounded'>
-          {/* Messages Here */}
+          {!loading ? (
+            <LoadSingleChat />
+          ) : (
+            <></>
+          )}
         </div>
       </>
     ) : (

@@ -18,13 +18,13 @@ import axios from 'axios'
 //   }).then(res => res.data.token)
 // }
 
-export function userRegister (username, email, password) {
-  return axios.post('https://chatting-app-api-chatify.herokuapp.com/api/user', {
-    username: username,
-    email: email,
-    password: password
-  }).then(res => res.data)
-}
+// export function userRegister (username, email, password) {
+//   return axios.post('https://chatting-app-api-chatify.herokuapp.com/api/user', {
+//     username: username,
+//     email: email,
+//     password: password
+//   }).then(res => res.data)
+// }
 
 // Auth Section End -----------------------------
 
