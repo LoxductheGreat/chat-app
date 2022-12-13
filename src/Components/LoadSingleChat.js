@@ -2,8 +2,8 @@ import React from 'react'
 
 function LoadSingleChat () {
   return (
-    <div className='d-flex singlechatspinner align-items-center'>
-      <div className='spinner-border text-dark' role='status'>
+    <div className='align-items-center m-auto'>
+      <div className='spinner-border text-dark singlechatspinner' role='status'>
         <span className='visually-hidden'>Loading...</span>
       </div>
     </div>

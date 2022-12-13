@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import ChatBox from './ChatBox'
-import ChatList from './ChatList'
-import Header from './Header'
+import ChatBox from '../Components/ChatBox'
+import ChatList from '../Components/ChatList'
+import Header from '../Components/Header'
 import { ChatState } from '../Context/ChatContext'
 import { useNavigate } from 'react-router-dom'
 
-function HomePage () {
+function Home () {
   const { user } = ChatState()
   const [fetchAgain, setfetchAgain] = useState(false)
 
@@ -20,9 +20,9 @@ function HomePage () {
   }, [nav])
 
   return (
-    <div className='vw-100'>
+    <div className='w-100'>
       {user && <Header />}
-      <div className='d-flex justify-content-between homepagebody'>
+      <div className='d-flex justify-content-between w-100 homepg'>
         {user && (<ChatList fetchAgain={fetchAgain} />)}
         {user && (<ChatBox fetchAgain={fetchAgain} setfetchAgain={setfetchAgain} />)}
       </div>
@@ -30,4 +30,4 @@ function HomePage () {
   )
 }
 
-export default HomePage
+export default Home

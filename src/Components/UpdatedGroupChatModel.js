@@ -7,7 +7,7 @@ import axios from 'axios'
 import Spinner from './Spinner'
 import ChatItemList from './ChatItemList'
 
-function UpdatedGroupChatModel ({ fetchAgain, setFetchAgain }) {
+function UpdatedGroupChatModel ({ fetchAgain, setFetchAgain, fetchMessages }) {
   const [groupChatName, setGroupChatName] = useState()
   const [search, setSearch] = useState('')
   const [searchResult, setSearchResult] = useState([])
@@ -63,6 +63,7 @@ function UpdatedGroupChatModel ({ fetchAgain, setFetchAgain }) {
 
       user1._id === user._id ? setSelectedChat() : setSelectedChat(data)
       setFetchAgain(!fetchAgain)
+      fetchMessages()
       setLoading(false)
     } catch (error) {
 

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { ChatState } from '../Context/ChatContext'
 import axios from 'axios'
-import ChatLoading from './ChatLoading'
+import ChatLoading from '../Animations/ChatLoading'
 import { getSender } from './ChatLogic'
 import ChatItemList from './ChatItemList'
 import UserBadgeItem from './UserBadgeItem'
@@ -108,15 +108,15 @@ function ChatList ({ fetchAgain }) {
   })
 
   return (
-    <div className='card col m-2 col-4 mychatcard'>
+    <div className='card col-3 mh-100 m-2'>
       <div className='card-header d-flex justify-content-between'>
         <h2 className='card-title'>My Chats</h2>
         <button type='button' className='btn btn-primary float-right' data-bs-toggle='modal' data-bs-target='#newgroupBackdrop'>New Group Chat<FontAwesomeIcon icon={faPlus} /></button>
       </div>
-      <div className='card-body'>
+      <div className='card-body overflow-auto'>
         {errorMessage ? <div className='alert alert-danger alert-dismissible fade show' role='alert'>{errorMessage}</div> : null}
         {chats ? (
-          <div className='h-auto'>
+          <div className=''>
             {chats.map((chat) => (
               <button type='button' className='m-2 w-100 d-flex btn btn-light' onClick={() => setSelectedChat(chat)} key={chat._id}>
                 <p>{!chat.isGroupChat ? getSender(loggedUser, chat.users) : (chat.chatName)}</p>
