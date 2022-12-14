@@ -15,7 +15,7 @@ function ScrollableChat ({ messages }) {
               <img className='chatimg rounded-circle' name={m.sender.username} src={m.sender.pic} data-bs-toggle='tooltip' data-bs-placement='bottom' data-bs-title='Tooltip on top' />
             )}
 
-            <span style={{ backgroundColor: `${m.sender._id === user._id ? '#BEE3F8' : '#B9F5D0'}`, borderRadius: '20px', padding: '5px 15px', maxWidth: '75%', marginLeft: isSameSenderMargin(messages, m, i, user._id), marginTop: isSameUser(messages, m, i, user._id) ? 3 : 10 }}>
+            <span style={{ backgroundColor: `${m.sender._id === user._id ? '#BEE3F8' : '#B9F5D0'}`, borderRadius: '20px', padding: '5px 15px', marginBottom: '10px', maxWidth: '75%', marginLeft: isSameSenderMargin(messages, m, i, user._id), marginTop: isSameUser(messages, m, i, user._id) ? 3 : 10 }}>
               {m.content}
             </span>
           </div>
