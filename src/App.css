@@ -55,12 +55,23 @@ nav {
   flex-direction: column;
   overflow-y: scroll;
   scrollbar-width: none;
+  background-color: #E8E8E8;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .chatimg {
-  height: 10px;
-  width: 10px;
+  height: 30px;
+  width: 30px;
+  margin-top: 4px;
+  margin-right: 5px;
 }
+
+/* .nice {
+  white-space: none;
+} */
 
 /* * {
   max-height: 100%;
