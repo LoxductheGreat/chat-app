@@ -11,7 +11,8 @@ import io from 'socket.io-client'
 import Lottie from 'react-lottie'
 import animationData from '../Animations/Typing.json'
 
-const ENDPOINT = 'http://localhost:2500'
+// const ENDPOINT = 'http://localhost:2500'
+const ENDPOINT = 'https://chat-app-api-production-2f20.up.railway.app'
 var socket, selectedChatCompare
 
 export default function SingleChat ({ fetchAgain, setFetchAgain }) {
@@ -31,7 +32,7 @@ export default function SingleChat ({ fetchAgain, setFetchAgain }) {
     }
   }
 
-  const { user, selectedChat, setSelectedChat } = ChatState()
+  const { user, selectedChat, notification, setNotification } = ChatState()
 
   const fetchMessages = async () => {
     if (!selectedChat) return
@@ -70,10 +71,14 @@ export default function SingleChat ({ fetchAgain, setFetchAgain }) {
     selectedChatCompare = selectedChat
   }, [selectedChat])
 
+  // console.log(notification, '-----------------------')
   useEffect(() => {
     socket.on('message recieved', (newMessageRecieved) => {
       if (!selectedChat || selectedChatCompare._id !== newMessageRecieved.chat._id) {
-
+        if (!notification.includes(newMessageRecieved)) {
+          setNotification([newMessageRecieved, ...notification])
+          setFetchAgain(!fetchAgain)
+        }
       } else {
         setMessages([...messages, newMessageRecieved])
       }

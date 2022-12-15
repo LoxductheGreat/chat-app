@@ -7,6 +7,7 @@ import ChatLoading from '../Animations/ChatLoading'
 import axios from 'axios'
 import ChatItemList from './ChatItemList'
 import Spinner from '../Animations/Spinner'
+import { getSender } from './ChatLogic'
 
 function Header () {
   const [search, setSearch] = useState('')
@@ -14,7 +15,7 @@ function Header () {
   const [loading, setLoading] = useState(false)
   const [loadingchat, setLoadingChat] = useState(false)
 
-  const { user, chats, setChats, setSelectedChat } = ChatState()
+  const { user, chats, setChats, setSelectedChat, notification, setNotification } = ChatState()
 
   const nav = useNavigate()
 
@@ -61,7 +62,6 @@ function Header () {
     }
   }
 
-
   return (
     <nav className='d-flex justify-content-between align-items-center bg-white w-100 border border-3'>
       <button className='d-line btn btn-light ' type='button' data-bs-toggle='offcanvas' data-bs-target='#staticBackdrop' aria-controls='staticBackdrop'>
@@ -88,8 +88,24 @@ function Header () {
       <h4 className='m-1 my-sm-0'>Chatify</h4>
       <div className='btn-group-sm mx-4' role='group' aria-label='Button group with nested dropdown'>
         {/* Might wanna use a badge for notiication bell */}
-        <button type='button' className='btn btn-light notti-button' data-bs-container='body' data-bs-toggle='popover' data-bs-placement='bottom' data-bs-content='Bottom popover'><FontAwesomeIcon size='xl' icon={faBell} />
+        <button type='button' className='btn btn-light notti-button dropdown-toggle' data-bs-toggle='dropdown'><FontAwesomeIcon size='xl' icon={faBell} />
         </button>
+
+        {/* DropDown */}
+        <ul className='dropdown-menu'>
+          {!notification.length && 'No New Messages'}
+          {notification.map((noti) => (
+            <p
+              className='dropdown-item' key={noti._id} onClick={() => {
+                setSelectedChat(noti.chat)
+                setNotification(notification.filter((n) => n !== noti))
+              }}
+            >
+              {noti.chat.isGroupChat ? `New Message in ${noti.chat.chatName}` : `New Message from ${getSender(user, noti.chat.users)}`}
+            </p>
+          ))}
+        </ul>
+
         <button type='button' className='btn btn-light '><img className='rounded header-img' src={user.pic} alt='' /></button>
         <div className='btn-group' role='group'>
           <button type='button' className='btn btn-primary dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false' />
