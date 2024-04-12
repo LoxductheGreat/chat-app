@@ -12,7 +12,7 @@ import Lottie from 'react-lottie'
 import animationData from '../Animations/Typing.json'
 
 // const ENDPOINT = 'http://localhost:2500'
-const ENDPOINT = 'https://chat-app-api-production-2f20.up.railway.app'
+const ENDPOINT = 'https://chat-app-api-g58w.onrender.com'
 var socket, selectedChatCompare
 
 export default function SingleChat ({ fetchAgain, setFetchAgain }) {
@@ -46,7 +46,7 @@ export default function SingleChat ({ fetchAgain, setFetchAgain }) {
 
       setLoading(true)
 
-      const { data } = await axios.get(`https://chat-app-api-production-2f20.up.railway.app/api/message/${selectedChat._id}`, config)
+      const { data } = await axios.get(`https://chat-app-api-g58w.onrender.com/api/message/${selectedChat._id}`, config)
 
       setMessages(data)
       setLoading(false)
@@ -96,7 +96,7 @@ export default function SingleChat ({ fetchAgain, setFetchAgain }) {
         }
 
         setNewMessage('')
-        const { data } = await axios.post('https://chat-app-api-production-2f20.up.railway.app/api/message',
+        const { data } = await axios.post('https://chat-app-api-g58w.onrender.com/api/message',
           {
             content: newMessage,
             chatId: selectedChat._id

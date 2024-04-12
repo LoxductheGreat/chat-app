@@ -38,7 +38,7 @@ function ChatList ({ fetchAgain }) {
         }
       }
 
-      const { data } = await axios.get(`https://chat-app-api-production-2f20.up.railway.app/api/user?search=${search}`, config)
+      const { data } = await axios.get(`https://chat-app-api-g58w.onrender.com/api/user?search=${search}`, config)
       console.log(data)
       setLoading(false)
       setSearchResult(data)
@@ -59,7 +59,7 @@ function ChatList ({ fetchAgain }) {
         }
       }
 
-      const { data } = await axios.post('https://chat-app-api-production-2f20.up.railway.app/api/chat/group', {
+      const { data } = await axios.post('https://chat-app-api-g58w.onrender.com/api/chat/group', {
         name: groupChatName,
         users: JSON.stringify(selectedUsers.map((u) => u._id))
       }, config)
@@ -91,7 +91,7 @@ function ChatList ({ fetchAgain }) {
         }
       }
 
-      const { data } = await axios.get('https://chat-app-api-production-2f20.up.railway.app/api/chat', config)
+      const { data } = await axios.get('https://chat-app-api-g58w.onrender.com/api/chat', config)
       setChats(data)
     } catch (error) {
       setErrorMessage('Error has Occured!')

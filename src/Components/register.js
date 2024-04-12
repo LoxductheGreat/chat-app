@@ -62,7 +62,7 @@ function Register () {
         }
       }
       const { data } = await axios.post(
-        'https://chat-app-api-production-2f20.up.railway.app/api/user',
+        'https://chat-app-api-g58w.onrender.com/api/user',
         { username, email, password, pic },
         config
       )
